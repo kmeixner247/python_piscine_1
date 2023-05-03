@@ -1,12 +1,16 @@
-def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
-    """give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]
+def give_bmi(height: list[int | float],
+             weight: list[int | float]) -> list[int | float]:
+    """give_bmi(height: list[int | float],
+        weight: list[int | float]) -> list[int | float]
 
-Calculates and returns an array of BMIs from the given height and weight arrays.
-Gives Assertion Errors in case of mismatching arrays, zero heights or invalid types"""
+Calculates and returns an array of BMIs from the given height and
+weight arrays. Gives Assertion Errors in case of mismatching arrays,
+zero heights or invalid types"""
     try:
         assert type(height) is list, "height array must be a list"
         assert type(weight) is list, "weight array must be a list"
-        assert len(height) == len(weight), "height and weight have different sizes"
+        assert len(height) is len(weight), "height and weight have\
+        different sizes"
         bmis = [w / (h**2) for (w, h) in zip(weight, height)]
     except TypeError:
         print("give_bmi: TypeError: arrays contain invalid types")
@@ -15,14 +19,15 @@ Gives Assertion Errors in case of mismatching arrays, zero heights or invalid ty
         print("give_bmi: ZeroDivisionError: height cannot include any zero")
         quit()
     except AssertionError as msg:
-        print("give_bmi: Assertion Error:", msg)
+        print("give_bmi: AssertionError:", msg)
         quit()
     return bmis
 
+
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """apply_limit(bmi: list[int | float], limit: int) -> list[bool]
-    
-Returns a list of booleans, where each element represents whether the respective
+
+Returns a list of booleans, where each element represents whether the
 element in the bmi list if bigger than the limit"""
     try:
         assert type(limit) is int, "limit variable must be int"
@@ -32,6 +37,6 @@ element in the bmi list if bigger than the limit"""
         print("apply_limit: Type Error: invalid type in bmi list")
         quit()
     except AssertionError as msg:
-        print("apply_limit: Assertion Error:", msg)
+        print("apply_limit: AssertionError:", msg)
         quit()
     return bools
