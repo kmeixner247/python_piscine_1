@@ -35,7 +35,7 @@ def turn_black_white(img: np.ndarray) -> np.ndarray:
 
 
 def main():
-    img = ft_load("tester.py")
+    img = ft_load("animal.jpeg")
     print(img)
     p1 = (100, 450)
     p2 = (500, 850)
