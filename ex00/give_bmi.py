@@ -27,10 +27,10 @@ element in the bmi list if bigger than the limit"""
     try:
         assert type(limit) is int, "limit variable must be int"
         assert type(bmi) is list, "bmi variable must be a list"
-        try:
-            bools = [b > limit for b in bmi]
-        except TypeError:
-            raise AssertionError("invalid type in bmi list")
+        bools = [b > limit for b in bmi]
+    except TypeError:
+        print("apply_limit: Type Error: invalid type in bmi list")
+        quit()
     except AssertionError as msg:
         print("apply_limit: Assertion Error:", msg)
         quit()
