@@ -22,28 +22,20 @@ bottom right of p1"
     except AssertionError as msg:
         print("zoom: AssertionError:", msg)
         quit()
-    return img[p1[0]:p2[0], p1[1]:p2[1], :]
-
-
-def turn_black_white(img: np.ndarray) -> np.ndarray:
-    try:
-        assert type(img) is np.ndarray, "not a valid img"
-    except AssertionError as msg:
-        print("zoom: AssertionError:", msg)
-        quit()
-    return np.mean(img, axis=2, keepdims=True).astype(np.uint8)
+    return img[p1[0]:p2[0], p1[1]:p2[1], :1]
 
 
 def main():
+    """main function of zoom.py. Loads an image, slices it to specified
+sizes and displays the image"""
     img = ft_load("animal.jpeg")
     print(img)
     p1 = (100, 450)
     p2 = (500, 850)
     zoomed = zoom(img, p1, p2)
-    gray = turn_black_white(zoomed)
-    print("New shape after slicing:", gray.shape, "or", gray.shape[:-1])
-    print(gray)
-    plt.imshow(gray, cmap='gray')
+    print("New shape after slicing:", zoomed.shape, "or", zoomed.shape[:-1])
+    print(zoomed)
+    plt.imshow(zoomed, cmap='gray')
     plt.show()
 
 
