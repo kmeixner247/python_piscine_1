@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from load_image import ft_load
 
+
 def zoom(img: np.ndarray, p1: tuple, p2: tuple) -> np.ndarray:
     """zoom(img: np.ndarray, p1: tuple, p2: tuple) -> np.ndarray
 
