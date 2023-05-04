@@ -11,7 +11,7 @@ Checks for valid path and if the file exists"""
     try:
         assert type(path) is str, "path must be a string"
         img_array = plt.imread(path)
-        print("The shape of the image is:", img_array.shape)
+        # print("The shape of the image is:", img_array.shape)
     except AssertionError as msg:
         print("ft_load: AssertionError:", msg)
         quit()
