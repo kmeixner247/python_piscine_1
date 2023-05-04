@@ -12,16 +12,16 @@ Checks if p2 is to the bottom right of p1 and if p1 and p2 are valid coords"""
         assert type(p1) is tuple, "p1 must be tuple"
         assert type(p2) is tuple, "p2 must be tuple"
         assert len(p1) == 2 and len(p2) == 2, "p1 and p2 must be 2D coord"
-        assert p1[0] >= 0 and p1[0] < img.shape[0], "p1 not a valid coord"
-        assert p2[0] >= 0 and p2[0] < img.shape[0], "p2 not a valid coord"
-        assert p1[1] >= 0 and p1[1] < img.shape[1], "p1 not a valid coord"
-        assert p2[1] >= 0 and p2[1] < img.shape[1], "p2 not a valid coord"
-        assert p1[0] < p2[0] and p1[1] < p2[1], "p2 must be to the\
+        (h1, w1), (h2, w2) = p1, p2
+        assert 0 <= h1 < h2 <= img.shape[0], "p1 and p2 must be valid coords"
+        assert 0 <= w1 < w2 <= img.shape[1], "p1 and p2 must be valid coords"
+        assert h1 < h2 and w1 < w2, "p2 must be to the\
 bottom right of p1"
     except AssertionError as msg:
         print("zoom: AssertionError:", msg)
         quit()
-    return img[p1[0]:p2[0], p1[1]:p2[1], :1]
+    return img[h1:h2, w1:w2, :1]
+
 
 def main():
     """main function of rotate.py. Loads specified image, slices it to
